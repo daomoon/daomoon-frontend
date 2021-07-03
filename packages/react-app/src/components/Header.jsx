@@ -5,8 +5,8 @@ export default function Header() {
   return (
     <a href="https://github.com/austintgriffith/scaffold-eth/tree/uniswapper" target="_blank" rel="noopener noreferrer">
       <PageHeader
-        title="🏗 scaffold-eth"
-        subTitle="forkable Uniswap swap interface"
+        title="🌓 DAOMoon"
+        subTitle="unstoppable liquidity for unstoppable organizations"
         style={{ cursor: "pointer" }}
       />
     </a>

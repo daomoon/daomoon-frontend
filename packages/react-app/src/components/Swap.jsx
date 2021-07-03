@@ -35,7 +35,7 @@ const makeCall = async (callName, contract, args, metadata={}) => {
 }
 
 let defaultToken = 'ETH'
-let defaultTokenOut = 'DAI'
+let defaultTokenOut = 'dMOON'
 let defaultSlippage = '0.5'
 let defaultTimeLimit = 60 * 10
 
@@ -82,22 +82,24 @@ function Swap({ selectedProvider, tokenListURI }) {
     const getTokenList = async () => {
       console.log(_tokenListUri)
       try {
-      let tokenList = await fetch(_tokenListUri)
-      let tokenListJson = await tokenList.json()
-      let filteredTokens = tokenListJson.tokens.filter(function (t) {
-        return t.chainId === ChainId.MAINNET
-      })
-      let ethToken = WETH[ChainId.MAINNET]
-      ethToken.name = 'Ethereum'
-      ethToken.symbol = 'ETH'
-      ethToken.logoURI = "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png"
-      let _tokenList = [ethToken, ...filteredTokens]
-      setTokenList(_tokenList)
-      let _tokens = tokenListToObject(_tokenList)
-      setTokens(_tokens)
-    } catch (e) {
-      console.log(e)
-    }
+        let tokenList = await fetch(_tokenListUri)
+        console.log('list: ', tokenList.json());
+        let tokenListJson = await tokenList.json()
+        let filteredTokens = tokenListJson.tokens.filter(function (t) {
+          return t.chainId === ChainId.MAINNET
+        })
+
+        let ethToken = WETH[ChainId.MAINNET]
+        ethToken.name = 'Ethereum'
+        ethToken.symbol = 'ETH'
+        ethToken.logoURI = "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png"
+        let _tokenList = [ethToken, ...filteredTokens]
+        setTokenList(_tokenList)
+        let _tokens = tokenListToObject(_tokenList)
+        setTokens(_tokens)
+      } catch (e) {
+        console.log(e)
+      }
     }
     getTokenList()
   },[tokenListURI])
@@ -108,7 +110,7 @@ function Swap({ selectedProvider, tokenListURI }) {
     let pairs = (arr) => arr.map( (v, i) => arr.slice(i + 1).map(w => [v,w]) ).flat();
 
     let baseTokens = tokenList.filter(function (t) {
-      return ['DAI', 'USDC', 'USDT', 'COMP', 'ETH', 'MKR', 'LINK', tokenIn, tokenOut].includes(t.symbol)
+      return ['dMOON', 'WBTC', 'DAI', 'ETH', tokenIn, tokenOut].includes(t.symbol)
     }).map((el) => {
       return new Token(el.chainId, el.address, el.decimals, el.symbol, el.name)
     })
@@ -374,7 +376,16 @@ function Swap({ selectedProvider, tokenListURI }) {
   )
 
   return (
-    <Card title={<Space><img src="https://ipfs.io/ipfs/QmXttGpZrECX5qCyXbBQiqgQNytVGeZW5Anewvh2jc4psg" width='40' alt='uniswapLogo'/><Typography>Uniswapper</Typography></Space>} extra={<Button type="text" onClick={() => {setSettingsVisible(true)}}><SettingOutlined /></Button>}>
+    <Card
+      title={
+        <Space><Typography>🌑 Send it to dMoon 🌕</Typography></Space>
+      }
+      extra={<Button type="text" onClick={() => { setSettingsVisible(true) }}><SettingOutlined /></Button>}
+      style={{
+        borderRadius: "8px",
+        boxShadow: "0 0 15px rgba(0,0,0,0.3)"
+      }}
+    >
     <Space direction="vertical">
     <Row justify="center" align="middle">
     <Card size="small" type="inner" title={`From${exact==='out' && tokenIn && tokenOut?' (estimate)':''}`} extra={<><img src={logoIn} alt={logoIn} width='30'/><Button type="link" onClick={() => {

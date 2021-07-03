@@ -78,6 +78,9 @@ module.exports = {
         mnemonic: mnemonic(),
       },
     },
+    hardhat: {
+      chainId: 1337
+    },
   },
   solidity: {
     version: "0.6.7",

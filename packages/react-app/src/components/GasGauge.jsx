@@ -7,8 +7,11 @@ export default function GasGauge(props) {
       onClick={() => {
         window.open("https://ethgasstation.info/");
       }}
-      size="large"
+      size="small"
       shape="round"
+      style={{
+        border: "none",
+      }}
     >
       <span style={{ marginRight: 8 }}><span role="img" aria-label="fuelpump">⛽️</span></span>
       {parseInt(props.gasPrice, 10) / 10 ** 9}g

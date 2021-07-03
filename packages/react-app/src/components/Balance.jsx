@@ -59,7 +59,7 @@ export default function Balance(props) {
     <span
       style={{
         verticalAlign: "middle",
-        fontSize: props.size ? props.size : 24,
+        fontSize: props.size ? props.size : 14,
         padding: 8,
         cursor: "pointer",
       }}

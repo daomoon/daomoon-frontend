@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "antd";
+import { Box, Stack, HStack } from "@chakra-ui/react";
 import Address from "./Address";
 import Balance from "./Balance";
 import Wallet from "./Wallet";
@@ -24,7 +25,7 @@ export default function Account({
           key="logoutbutton"
           style={{ verticalAlign: "top", marginLeft: 8, marginTop: 4 }}
           shape="round"
-          size="large"
+          size="small"
           onClick={logoutOfWeb3Modal}
         >
           logout
@@ -36,7 +37,7 @@ export default function Account({
           key="loginbutton"
           style={{ verticalAlign: "top", marginLeft: 8, marginTop: 4 }}
           shape="round"
-          size="large"
+          size="small"
           /*type={minimized ? "default" : "primary"}     too many people just defaulting to MM and having a bad time*/
           onClick={loadWeb3Modal}
         >
@@ -49,17 +50,19 @@ export default function Account({
   const display = minimized ? (
     ""
   ) : (
-    <span>
+      <HStack>
       {address ? <Address value={address} ensProvider={mainnetProvider} blockExplorer={blockExplorer} /> : "Connecting..."}
       <Balance address={address} provider={localProvider} dollarMultiplier={price} />
-      <Wallet address={address} provider={userProvider} ensProvider={mainnetProvider} price={price} />
-    </span>
+        <Wallet address={address} provider={userProvider} ensProvider={mainnetProvider} price={price} localProvider={localProvider} blockExplorer={blockExplorer} />
+      </HStack>
   );
 
   return (
-    <div>
-      {display}
-      {modalButtons}
-    </div>
+    <Box d="inline-flex">
+      <HStack>
+        {display}
+        {modalButtons}
+      </HStack>
+    </Box>
   );
 }

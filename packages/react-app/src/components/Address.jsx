@@ -1,6 +1,7 @@
 import React from "react";
 import Blockies from "react-blockies";
 import { Typography, Skeleton } from "antd";
+import { Box, Stack, HStack } from "@chakra-ui/react";
 import { useLookupAddress } from "../hooks";
 
 /*
@@ -46,7 +47,7 @@ export default function Address(props) {
     return (
       <span style={{ verticalAlign: "middle" }}>
         <a style={{ color: "#222222" }} target={"_blank"} href={etherscanLink} rel="noopener noreferrer">
-          <Blockies seed={props.value.toLowerCase()} size={8} scale={2} />
+          <Blockies seed={props.value.toLowerCase()} size={4} scale={2} />
         </a>
       </span>
     );
@@ -72,11 +73,13 @@ export default function Address(props) {
   }
 
   return (
-    <span>
+    <HStack>
       <span style={{ verticalAlign: "middle" }}>
-        <Blockies seed={props.value.toLowerCase()} size={8} scale={props.fontSize?props.fontSize/7:4} />
+        <Blockies seed={props.value.toLowerCase()} size={6} scale={props.fontSize ? props.fontSize / 8 : 5} />
       </span>
-      <span style={{ verticalAlign: "middle", paddingLeft: 5, fontSize: props.fontSize?props.fontSize:28 }}>{text}</span>
-    </span>
+      <span style={{ verticalAlign: "middle", paddingLeft: 5, fontSize: props.fontSize ? props.fontSize : 14 }}>
+        {text}
+      </span>
+    </HStack>
   );
 }

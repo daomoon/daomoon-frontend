@@ -17,6 +17,10 @@
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
     "@apollo/react-hooks": "^4.0.0",
+    "@chakra-ui/icons": "^1.0.13",
+    "@chakra-ui/react": "^1.6.4",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@ethersproject/address": "^5.0.5",
     "@ethersproject/bignumber": "^5.0.8",
     "@ethersproject/bytes": "^5.0.5",
@@ -39,6 +43,7 @@
     "burner-provider": "^1.0.38",
     "dotenv": "^8.2.0",
     "eth-hooks": "^1.1.2",
+    "framer-motion": "^4",
     "graphiql": "^1.0.5",
     "graphql": "^15.3.0",
     "isomorphic-fetch": "^3.0.0",
@@ -46,10 +51,13 @@
     "react": "^16.14.0",
     "react-blockies": "^1.4.1",
     "react-dom": "^16.14.0",
+    "react-helmet": "^6.1.0",
     "react-qr-reader": "^2.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
-    "web3modal": "^1.9.1"
+    "react-transition-group": "^4.4.2",
+    "web3modal": "^1.9.1",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@testing-library/dom": "^6.12.2",

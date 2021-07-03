@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal, Divider } from "antd";
+import { Box } from "@chakra-ui/react";
 import { DollarCircleOutlined } from "@ant-design/icons";
 import { RampInstantSDK } from "@ramp-network/ramp-instant-sdk";
 
@@ -9,15 +10,20 @@ export default function Ramp(props) {
   const type = "default";
 
   return (
-    <div>
+    <Box
+      sx={{
+        "button": {
+          border: "none"
+        }
+      }}>
       <Button
-        size="large"
+        size="small"
         shape="round"
         onClick={() => {
           setModalUp("up");
         }}
       >
-        <DollarCircleOutlined style={{ color: "#52c41a" }} /> {props.price.toFixed(2)}
+        📈 {props.price.toFixed(2)}
       </Button>
       <Modal
         title="Buy ETH"
@@ -39,7 +45,7 @@ export default function Ramp(props) {
         <p>
           <Button
             type={type}
-            size="large"
+            size="small"
             shape="round"
             onClick={() => {
               window.open("https://pay.sendwyre.com/purchase?destCurrency=ETH&sourceAmount=25&dest=" + props.address);
@@ -55,7 +61,7 @@ export default function Ramp(props) {
           {" "}
           <Button
             type={type}
-            size="large"
+            size="small"
             shape="round"
             onClick={() => {
               new RampInstantSDK({
@@ -79,7 +85,7 @@ export default function Ramp(props) {
         <p>
           <Button
             type={type}
-            size="large"
+            size="small"
             shape="round"
             onClick={() => {
               window.open("https://www.coinbase.com/buy-ethereum");
@@ -97,7 +103,7 @@ export default function Ramp(props) {
         <p>
           <Button
             type={type}
-            size="large"
+            size="small"
             shape="round"
             onClick={() => {
               window.open("https://faucet.rinkeby.io/");
@@ -113,7 +119,7 @@ export default function Ramp(props) {
         <p>
           <Button
             type={type}
-            size="large"
+            size="small"
             shape="round"
             onClick={() => {
               window.open("https://faucet.ropsten.be/");
@@ -129,7 +135,7 @@ export default function Ramp(props) {
         <p>
           <Button
             type={type}
-            size="large"
+            size="small"
             shape="round"
             onClick={() => {
               window.open("https://faucet.kovan.network/");
@@ -145,7 +151,7 @@ export default function Ramp(props) {
         <p>
           <Button
             type={type}
-            size="large"
+            size="small"
             shape="round"
             onClick={() => {
               window.open("https://faucet.goerli.mudit.blog/");
@@ -158,6 +164,6 @@ export default function Ramp(props) {
           </Button>
         </p>
       </Modal>
-    </div>
+    </Box>
   );
 }

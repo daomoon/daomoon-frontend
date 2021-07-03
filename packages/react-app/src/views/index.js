@@ -1,1 +1,3 @@
-export { default as Hints } from "./Hints";
+export { default as Home } from "./Home";
+export { default as About } from "./About";
+export { default as Pool } from "./Pool";
