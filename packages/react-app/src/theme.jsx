@@ -45,5 +45,12 @@ export const dMoonTheme = extendTheme({
       // The default `size` or `variant` values
       defaultProps: {},
     },
+    Button: {
+      baseStyle: {
+        backgroundColor: "wheat",
+        borderRadius: 0,
+        mb: 3
+      }
+    }
   }
 })
