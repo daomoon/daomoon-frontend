@@ -65,7 +65,7 @@ export default function Footer() {
             flexGrow: 1,
             ml: 8,
           }}>
-          🌓 DAOMoon
+          🌖 DAOMoon
         </Flex>
       </Box>
     </Box>

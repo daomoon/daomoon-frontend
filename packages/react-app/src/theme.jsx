@@ -6,8 +6,8 @@ export const dMoonTheme = extendTheme({
     global: {
       // styles for the `body`
       body: {
-        bg: "white",
-        color: "black",
+        bg: "black",
+        color: "white",
         fontFamily: 'Ubuntu',
       },
       "h1, h2, h3, h4": {
@@ -32,11 +32,11 @@ export const dMoonTheme = extendTheme({
       // Styles for the size variations
       sizes: {
         xl: {
-          mt: 4,
+          mt: "50px",
           mb: 3
         },
         "2xl": {
-          mt: 4,
+          mt: "50px",
           mb: 4
         }
       },

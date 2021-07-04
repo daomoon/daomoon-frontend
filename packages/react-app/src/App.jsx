@@ -140,7 +140,7 @@ function App({ Component, props, pageProps }) {
             gasPrice={gasPrice}
           />
 
-          <Box d="flex" as="section" flex={1} alignItems="center" justifyContent="center">
+          <Box d="flex" as="section" flex={1} alignItems="center" justifyContent="center" pb="50px">
             <Switch>
               <Route exact path="/" withRouter>
                 <Helmet>

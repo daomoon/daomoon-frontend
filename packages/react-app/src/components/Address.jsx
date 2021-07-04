@@ -46,7 +46,7 @@ export default function Address(props) {
   if (props.minimized) {
     return (
       <span style={{ verticalAlign: "middle" }}>
-        <a style={{ color: "#222222" }} target={"_blank"} href={etherscanLink} rel="noopener noreferrer">
+        <a style={{ color: props.color ? props.color : "black" }} target={"_blank"} href={etherscanLink} rel="noopener noreferrer">
           <Blockies seed={props.value.toLowerCase()} size={4} scale={2} />
         </a>
       </span>
@@ -57,7 +57,9 @@ export default function Address(props) {
   if (props.onChange) {
     text = (
       <Text editable={{ onChange: props.onChange }} copyable={{ text: props.value }}>
-        <a style={{ color: "#222222" }} target={"_blank"} href={etherscanLink} rel="noopener noreferrer">
+        <a style={{
+          color: props.color ? props.color : "black",
+        }} target={"_blank"} href={etherscanLink} rel="noopener noreferrer">
           {displayAddress}
         </a>
       </Text>
@@ -65,7 +67,7 @@ export default function Address(props) {
   } else {
     text = (
       <Text copyable={{ text: props.value }}>
-        <a style={{ color: "#222222" }} target={"_blank"} href={etherscanLink} rel="noopener noreferrer">
+        <a style={{ color: props.color ? props.color : "black", }} target={"_blank"} href={etherscanLink} rel="noopener noreferrer">
           {displayAddress}
         </a>
       </Text>
